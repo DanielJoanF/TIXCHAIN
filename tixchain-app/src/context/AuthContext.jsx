@@ -17,7 +17,8 @@ export const AuthProvider = ({ children }) => {
         setLoading(true);
         try {
             // Simulate wallet address (in prod, this comes from MetaMask)
-            const simulatedWallet = '0x' + Math.random().toString(16).slice(2, 10) + '...ABCD';
+            const hex = Array.from({ length: 40 }, () => Math.floor(Math.random() * 16).toString(16)).join('');
+            const simulatedWallet = '0x' + hex;
             const data = await walletLogin(simulatedWallet);
 
             setWalletAddress(data.walletAddress);
