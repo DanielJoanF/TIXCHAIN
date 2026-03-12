@@ -1,0 +1,11 @@
+[providers]
+java = "21"
+
+[phases.setup]
+nixPkgs = ["jdk21", "maven"]
+
+[phases.build]
+cmds = ["./mvnw clean package -DskipTests"]
+
+[start]
+cmd = "java -jar target/backend-0.0.1-SNAPSHOT.jar"
